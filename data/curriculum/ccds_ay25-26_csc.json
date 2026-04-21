@@ -55,9 +55,9 @@
       "sem": 2,
       "total_au": 19,
       "courses": [
-        { "code": "SC1006", "name": "Linear Algebra for Computing",                    "type": "Core",   "au": 3, "prereqs": [{ "code": "SC1005", "coreq": true }] },
+        { "code": "SC1006", "name": "Computer Organisation & Architecture",            "type": "Core",   "au": 3, "prereqs": [{ "code": "SC1005", "coreq": true }] },
         { "code": "SC1007", "name": "C and C++ Programming",                           "type": "Core",   "au": 3, "prereqs": [{ "code": "SC1003", "coreq": false }] },
-        { "code": "SC1008", "name": "Computer Organisation & Architecture",            "type": "Core",   "au": 3, "prereqs": [{ "code": "SC1003", "coreq": false }] },
+        { "code": "SC1008", "name": "(TO VERIFY)",                                     "type": "Core",   "au": 3, "prereqs": [{ "code": "SC1003", "coreq": false }] },
         { "code": "SC2000", "name": "Data Structures & Algorithms",                    "type": "Core",   "au": 3, "prereqs": [] },
         { "code": "SC2002", "name": "Object Oriented Design & Programming",            "type": "Core",   "au": 3, "prereqs": [{ "code": "SC1003", "coreq": false }, { "code": "SC1007", "coreq": false, "or": true }] },
         { "code": "CC0001", "name": "Career Design & Workplace Readiness in the V.U.C.A World", "type": "C-Core", "au": 2, "prereqs": [] },
