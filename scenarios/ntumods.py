@@ -197,24 +197,37 @@ def register_scenarios(env: Any) -> None:
             target_au: Desired total AU. If None, uses curriculum recommended.
             preferences: Free-text preferences, e.g. "no Friday classes".
         """
+        setup_error: str | None = None
+        curriculum = None
+        sem_block = None
+        next_sem_block = None
+
         try:
             curriculum = _load_curriculum(program)
         except Exception as e:
-            logger.error("Curriculum load failed: %s", e)
-            yield 0.0
-            return
+            setup_error = f"Could not load curriculum for {program!r}: {e}"
+            logger.error(setup_error)
 
-        sem_block = _find_sem(curriculum, year, sem)
-        if sem_block is None:
-            logger.error("No sem block for year=%d sem=%d", year, sem)
-            yield 0.0
-            return
+        if curriculum is not None:
+            sem_block = _find_sem(curriculum, year, sem)
+            if sem_block is None:
+                setup_error = f"No curriculum entry for year={year} sem={sem}"
+                logger.error(setup_error)
 
-        nxt_year, nxt_sem = (year, 2) if sem == 1 else (year + 1, 1)
-        next_sem_block = _find_sem(curriculum, nxt_year, nxt_sem)
+        if sem_block is not None and curriculum is not None:
+            nxt_year, nxt_sem = (year, 2) if sem == 1 else (year + 1, 1)
+            next_sem_block = _find_sem(curriculum, nxt_year, nxt_sem)
 
-        recommended_au = sem_block.get("total_au") or 19
+        recommended_au = (sem_block.get("total_au") if sem_block else None) or 19
         au_goal = int(target_au) if target_au is not None else recommended_au
+
+        if setup_error is not None:
+            yield (
+                "Scenario setup failed: " + setup_error + "\n"
+                "Please report this to the maintainer."
+            )
+            yield 0.0
+            return
 
         try:
             await playwright(
