@@ -122,6 +122,16 @@ def _score(
     }
     total_au = sum(code_to_au.get(code, 0) for code in found)
 
+    # Short-circuit: agent did nothing measurable → 0.0, no participation credit.
+    if not found and total_au == 0:
+        return 0.0, {
+            "total_au": 0,
+            "au_goal": au_goal,
+            "found_codes": [],
+            "reward": 0.0,
+            "reason": "no modules detected on page",
+        }
+
     # 1. AU match (0.40)
     au_diff = abs(total_au - au_goal)
     au_score = max(0.0, 1.0 - au_diff / 3.0)
