@@ -45,18 +45,19 @@ def _build_prompt(
             if next_lines
             else ""
         )
-        + "Steps to follow:\n"
-        "1. Take a screenshot. You should see the NTUMods landing page.\n"
-        "2. Click the 'Get Started' button to open the timetable builder.\n"
-        "3. For each course above, search by code, click to add, then pick an index.\n"
-        "4. If a chosen index clashes with another, click the clashing block to open "
-        "the index picker and try an alternative timing.\n"
-        "5. Keep iterating until every required course is added, total AU equals the "
-        "target, and there are no clashes.\n"
-        "6. Call the `get_curriculum` tool any time to recall codes & AU.\n"
-        "7. Call the `read_timetable_state` tool to self-check progress without "
-        "taking a screenshot.\n\n"
-        "Start by taking a screenshot."
+        + "Recommended approach (fastest path):\n"
+        "1. Call `ntumods_add_module(code='SC1003')` for each required course — "
+        "this adds via URL params and is far more reliable than typing in the "
+        "search box (which often drops characters).\n"
+        "2. After each add, call `read_timetable_state` to confirm it worked.\n"
+        "3. If a module is not found on NTUMods, skip it and note it in your "
+        "final summary — some brand-new codes aren't in NTUMods' DB yet.\n"
+        "4. Only fall back to clicking/typing if `ntumods_add_module` fails.\n"
+        "5. If there are index clashes, you can pass a different index: "
+        "`ntumods_add_module(code='SC1003', index='10007')`.\n\n"
+        "Call `get_curriculum` any time to recall codes & AU.\n\n"
+        "Start by taking a screenshot to confirm the browser is on ntumods.org, "
+        "then begin adding modules."
     )
 
 

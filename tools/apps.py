@@ -109,6 +109,14 @@ _CURRICULUM_CACHE: dict[str, dict[str, Any]] = {}
 
 
 def _load_curriculum(program: str) -> dict[str, Any]:
+    # Accept common aliases so "CCDS", "csc", etc. all resolve.
+    alias_map = {
+        "CCDS": "CCDS-CSC",
+        "CSC": "CCDS-CSC",
+        "CS": "CCDS-CSC",
+        "CCDS-CSC": "CCDS-CSC",
+    }
+    program = alias_map.get(program.upper(), program)
     if program in _CURRICULUM_CACHE:
         return _CURRICULUM_CACHE[program]
     filename_map = {"CCDS-CSC": "ccds_ay25-26_csc.json"}
@@ -207,6 +215,47 @@ _READ_TIMETABLE_JS = r"""
 
 
 @router.tool
+async def ntumods_add_module(code: str, index: str | None = None) -> dict:
+    """Add a module to the NTUMods timetable by navigating with URL params.
+
+    This is MUCH more reliable than typing into the search box, which often
+    drops characters. Prefer this tool over manual clicking whenever possible.
+
+    Args:
+        code: Module code, e.g. "SC1003" or "MH1812".
+        index: Optional index number, e.g. "10006". If omitted, NTUMods picks
+            the first available index.
+
+    Returns:
+        Dict with the new URL and the scraped timetable state. If the module
+        does not exist on NTUMods, the page will be unchanged.
+    """
+    code = code.strip().upper()
+    try:
+        current = await playwright(action="evaluate", script="window.location.href")
+        base = "https://ntumods.org/timetable"
+        if isinstance(current, str) and "/timetable" in current:
+            base = current.split("?")[0]
+        sep = "&" if "?" in base else "?"
+        target = f"{base}{sep}{code}"
+        if index:
+            target = f"{target}={index}"
+        await playwright(action="navigate", url=target, wait_for_load_state="networkidle")
+        state_raw = await playwright(action="evaluate", script=_READ_TIMETABLE_JS)
+        if isinstance(state_raw, str):
+            try:
+                state = json.loads(state_raw)
+            except Exception:
+                state = {"raw": state_raw}
+        else:
+            state = state_raw if isinstance(state_raw, dict) else {"raw": str(state_raw)}
+        return {"navigated_to": target, "state": state}
+    except Exception as e:
+        logger.warning("ntumods_add_module failed: %s", e)
+        return {"error": str(e)}
+
+
+@router.tool
 async def read_timetable_state() -> dict:
     """Scrape the current NTUMods timetable state from the live page.
 
@@ -240,6 +289,7 @@ __all__ = [
     "api_request",
     "get_curriculum",
     "read_timetable_state",
+    "ntumods_add_module",
     "_load_curriculum",
     "_find_sem",
 ]
