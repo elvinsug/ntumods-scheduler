@@ -39,7 +39,7 @@
       "total_au": 17,
       "courses": [
         { "code": "SC1003", "name": "Introduction to Computational Thinking & Programming", "type": "P-Series", "au": 3, "prereqs": [] },
-        { "code": "SC1004", "name": "Probability & Statistics for Computing",               "type": "Core",    "au": 4, "prereqs": [{ "code": "SC1003", "coreq": true }] },
+        { "code": "SC1004", "name": "Linear Algebra for Computing",                         "type": "Core",    "au": 4, "prereqs": [{ "code": "SC1003", "coreq": true }] },
         { "code": "SC1005", "name": "Digital Logic",                                         "type": "Core",    "au": 3, "prereqs": [] },
         { "code": "MH1812", "name": "Discrete Mathematics",                                  "type": "Core",    "au": 3, "prereqs": [] },
         { "code": "CC0003", "name": "Ethics & Civics in a Multicultural World",              "type": "C-Core",  "au": 2, "prereqs": [] },
