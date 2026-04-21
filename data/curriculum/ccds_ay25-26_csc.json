@@ -1,0 +1,142 @@
+{
+  "programme": "CCDS-CSC",
+  "full_name": "Computer Science",
+  "ay": "2025-2026",
+  "last_updated": "2026-04-08",
+  "total_au": 135,
+  "notes": [
+    "Students must complete 9 MPE courses (SC3xxx or SC4xxx), with at least 4 at SC4xxx level.",
+    "Students may choose FYP (SC4079 Parts 1 & 2) or replace it with 3 additional MPEs.",
+    "To graduate with Highest Distinction, FYP is required.",
+    "HW0001 (Introduction to Academic Communication) is for students who failed QET.",
+    "HW0002 (Calculus) is for students who have not done Calculus."
+  ],
+  "au_summary": {
+    "Y1": { "core": 25, "p_series": 3, "c_core": 8, "mpe": 0, "icc": 0, "bde": 0, "total": 36 },
+    "Y2": { "core": 18, "p_series": 0, "c_core": 6, "mpe": 6, "icc": 3, "bde": 3, "total": 36 },
+    "Y3": { "core": 4, "p_series": 6, "c_core": 0, "mpe": 12, "icc": 0, "bde": 6, "total": 28 },
+    "Y4": { "core": 0, "p_series": 0, "c_core": 0, "mpe": 24, "icc": 0, "bde": 11, "total": 35 }
+  },
+  "mpe_structure": {
+    "note": "9 MPEs required; at least 4 must be at SC4xxx level. Refer to CSC MPE Courses and Specialisation on CCDS website.",
+    "slots": [
+      { "slot": "MPE-1", "code_pool": "SC3xxx/SC4xxx", "au": 3, "constraint": "Any MPE" },
+      { "slot": "MPE-2", "code_pool": "SC3xxx/SC4xxx", "au": 3, "constraint": "Any MPE" },
+      { "slot": "MPE-3", "code_pool": "SC3xxx/SC4xxx", "au": 3, "constraint": "Any MPE" },
+      { "slot": "MPE-4", "code_pool": "SC3xxx/SC4xxx", "au": 3, "constraint": "Any MPE" },
+      { "slot": "MPE-5", "code_pool": "SC3xxx/SC4xxx", "au": 3, "constraint": "Any MPE" },
+      { "slot": "MPE-6", "code_pool": "SC4xxx",        "au": 3, "constraint": "SC4xxx only" },
+      { "slot": "MPE-7", "code_pool": "SC4xxx",        "au": 3, "constraint": "SC4xxx only" },
+      { "slot": "MPE-8", "code_pool": "SC4xxx",        "au": 3, "constraint": "SC4xxx only" },
+      { "slot": "MPE-9", "code_pool": "SC4xxx",        "au": 3, "constraint": "SC4xxx only" }
+    ],
+    "total_au": 27
+  },
+  "semesters": [
+    {
+      "year": 1,
+      "sem": 1,
+      "total_au": 17,
+      "courses": [
+        { "code": "SC1003", "name": "Introduction to Computational Thinking & Programming", "type": "P-Series", "au": 3, "prereqs": [] },
+        { "code": "SC1004", "name": "Probability & Statistics for Computing",               "type": "Core",    "au": 4, "prereqs": [{ "code": "SC1003", "coreq": true }] },
+        { "code": "SC1005", "name": "Digital Logic",                                         "type": "Core",    "au": 3, "prereqs": [] },
+        { "code": "MH1812", "name": "Discrete Mathematics",                                  "type": "Core",    "au": 3, "prereqs": [] },
+        { "code": "CC0003", "name": "Ethics & Civics in a Multicultural World",              "type": "C-Core",  "au": 2, "prereqs": [] },
+        { "code": "CC0015", "name": "Health & Wellbeing",                                    "type": "C-Core",  "au": 2, "prereqs": [] }
+      ],
+      "conditional_courses": [
+        { "code": "HW0001", "name": "Introduction to Academic Communication", "type": "Conditional", "au": null, "condition": "For students who failed QET" },
+        { "code": "HW0002", "name": "Calculus",                               "type": "Conditional", "au": null, "condition": "For students who have not done Calculus" }
+      ]
+    },
+    {
+      "year": 1,
+      "sem": 2,
+      "total_au": 19,
+      "courses": [
+        { "code": "SC1006", "name": "Linear Algebra for Computing",                    "type": "Core",   "au": 3, "prereqs": [{ "code": "SC1005", "coreq": true }] },
+        { "code": "SC1007", "name": "C and C++ Programming",                           "type": "Core",   "au": 3, "prereqs": [{ "code": "SC1003", "coreq": false }] },
+        { "code": "SC1008", "name": "Computer Organisation & Architecture",            "type": "Core",   "au": 3, "prereqs": [{ "code": "SC1003", "coreq": false }] },
+        { "code": "SC2000", "name": "Data Structures & Algorithms",                    "type": "Core",   "au": 3, "prereqs": [] },
+        { "code": "SC2002", "name": "Object Oriented Design & Programming",            "type": "Core",   "au": 3, "prereqs": [{ "code": "SC1003", "coreq": false }, { "code": "SC1007", "coreq": false, "or": true }] },
+        { "code": "CC0001", "name": "Career Design & Workplace Readiness in the V.U.C.A World", "type": "C-Core", "au": 2, "prereqs": [] },
+        { "code": "ML0004", "name": "Inquiry & Communication in an Interdisciplinary World",    "type": "C-Core", "au": 2, "prereqs": [] }
+      ]
+    },
+    {
+      "year": 2,
+      "sem": 1,
+      "total_au": 21,
+      "courses": [
+        { "code": "SC2001", "name": "Algorithm Design & Analysis",         "type": "Core",   "au": 3, "prereqs": [{ "code": "SC1007", "coreq": false }, { "code": "MH1812", "coreq": false }] },
+        { "code": "SC2005", "name": "Computer Network",                    "type": "Core",   "au": 3, "prereqs": [{ "code": "SC1006", "coreq": false }, { "code": "SC1007", "coreq": false }] },
+        { "code": "SC2203", "name": "Automata, Computability and Complexity", "type": "Core", "au": 3, "prereqs": [{ "code": "SC2001", "coreq": true }] },
+        { "code": "SC2006", "name": "Software Engineering",                "type": "Core",   "au": 3, "prereqs": [{ "code": "SC2002", "coreq": true }] },
+        { "code": "SC2008", "name": "Operating Systems",                   "type": "Core",   "au": 3, "prereqs": [{ "code": "SC2000", "coreq": false }, { "code": "SC1004", "coreq": false }] },
+        { "code": "CC0007", "name": "Science & Technology for Humanity",   "type": "C-Core", "au": 3, "prereqs": [] },
+        { "code": "CSL",    "name": "CSL (Service Learning) – Part 1",     "type": "CSL",    "au": 3, "prereqs": [], "note": "Continues into Y2S2" }
+      ]
+    },
+    {
+      "year": 2,
+      "sem": 2,
+      "total_au": 15,
+      "courses": [
+        { "code": "SC2207", "name": "Introduction to Databases",                          "type": "Core",   "au": 3, "prereqs": [{ "code": "SC2001", "coreq": true }] },
+        { "code": "CC0006", "name": "Sustainability: Society, Economy & Environment",     "type": "C-Core", "au": 3, "prereqs": [] },
+        { "code": "SC3xxx/SC4xxx", "name": "Major Prescribed Elective 1",                 "type": "MPE",    "au": 3, "slot": "MPE-1", "prereqs": [{ "note": "Refer to MPE listing" }] },
+        { "code": "SC3xxx/SC4xxx", "name": "Major Prescribed Elective 2",                 "type": "MPE",    "au": 3, "slot": "MPE-2", "prereqs": [{ "note": "Refer to MPE listing" }] },
+        { "code": "CSL",           "name": "CSL (Service Learning) – Part 2",             "type": "CSL",    "au": null, "prereqs": [], "note": "Continuation from Y2S1" },
+        { "code": "BDE",           "name": "Broadening and Deepening Elective",           "type": "BDE",    "au": 3, "prereqs": [{ "note": "Refer to Class Schedule" }] }
+      ]
+    },
+    {
+      "year": 3,
+      "sem": 1,
+      "total_au": 18,
+      "courses": [
+        { "code": "SC3099",        "name": "Capstone Project",                  "type": "Core",     "au": 4, "prereqs": [{ "note": "Year 3 Standing" }] },
+        { "code": "SC3xxx/SC4xxx", "name": "Major Prescribed Elective 3",       "type": "MPE",      "au": 3, "slot": "MPE-3", "prereqs": [{ "note": "Refer to MPE listing" }] },
+        { "code": "SC3xxx/SC4xxx", "name": "Major Prescribed Elective 4",       "type": "MPE",      "au": 3, "slot": "MPE-4", "prereqs": [{ "note": "Refer to MPE listing" }] },
+        { "code": "HW0288",        "name": "Engineering Communication",         "type": "P-Series", "au": 2, "prereqs": [{ "code": "CC0001", "coreq": false }, { "note": "Year 3 Standing" }] },
+        { "code": "BDE",           "name": "Broadening and Deepening Elective", "type": "BDE",      "au": 3, "prereqs": [{ "note": "Refer to Class Schedule" }] },
+        { "code": "BDE",           "name": "Broadening and Deepening Elective", "type": "BDE",      "au": 3, "prereqs": [{ "note": "Refer to Class Schedule" }] }
+      ]
+    },
+    {
+      "year": 3,
+      "sem": 2,
+      "total_au": 10,
+      "courses": [
+        { "code": "SC3920", "name": "Professional Internship (Graded)", "type": "P-Series", "au": 10, "prereqs": [{ "note": "Year 3 Standing" }] }
+      ]
+    },
+    {
+      "year": 4,
+      "sem": 1,
+      "total_au": 20,
+      "courses": [
+        { "code": "SC4079",        "name": "Final Year Project (Part 1)",        "type": "MPE",      "au": 4, "slot": "FYP-1", "prereqs": [{ "note": "Year 4 Standing" }], "note": "Or take 3 additional MPEs in place of FYP" },
+        { "code": "SC3xxx/SC4xxx", "name": "Major Prescribed Elective 5",        "type": "MPE",      "au": 3, "slot": "MPE-5", "prereqs": [{ "note": "Refer to MPE listing" }] },
+        { "code": "SC4xxx",        "name": "Major Prescribed Elective 6",        "type": "MPE",      "au": 3, "slot": "MPE-6", "prereqs": [{ "note": "Refer to MPE listing" }] },
+        { "code": "SC4xxx",        "name": "Major Prescribed Elective 7",        "type": "MPE",      "au": 3, "slot": "MPE-7", "prereqs": [{ "note": "Refer to MPE listing" }] },
+        { "code": "ML0015",        "name": "Profession Preparation",             "type": "P-Series", "au": 1, "prereqs": [] },
+        { "code": "BDE",           "name": "Broadening and Deepening Elective",  "type": "BDE",      "au": 3, "prereqs": [{ "note": "Refer to Class Schedule" }] },
+        { "code": "BDE",           "name": "Broadening and Deepening Elective",  "type": "BDE",      "au": 3, "prereqs": [{ "note": "Refer to Class Schedule" }] }
+      ]
+    },
+    {
+      "year": 4,
+      "sem": 2,
+      "total_au": 15,
+      "courses": [
+        { "code": "SC4079",  "name": "Final Year Project (Part 2)",       "type": "MPE", "au": 4, "slot": "FYP-2", "prereqs": [{ "note": "Year 4 Standing" }], "note": "Or take 3 additional MPEs in place of FYP" },
+        { "code": "SC4xxx",  "name": "Major Prescribed Elective 8",       "type": "MPE", "au": 3, "slot": "MPE-8", "prereqs": [{ "note": "Refer to MPE listing" }] },
+        { "code": "SC4xxx",  "name": "Major Prescribed Elective 9",       "type": "MPE", "au": 3, "slot": "MPE-9", "prereqs": [{ "note": "Refer to MPE listing" }] },
+        { "code": "BDE",     "name": "Broadening and Deepening Elective", "type": "BDE", "au": 3, "prereqs": [{ "note": "Refer to Class Schedule" }] },
+        { "code": "BDE",     "name": "Broadening and Deepening Elective", "type": "BDE", "au": 2, "prereqs": [{ "note": "Refer to Class Schedule" }] }
+      ]
+    }
+  ]
+}

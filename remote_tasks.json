@@ -1,32 +1,43 @@
 [
   {
-    "env": {"name": "my-org/browser"},
+    "env": {"name": "ntumods-scheduler/ntumods-scheduler:0.1.0"},
     "scenario": "2048-reach-tile",
     "args": {"target": 512}
   },
   {
-    "env": {"name": "my-org/browser"},
+    "env": {"name": "ntumods-scheduler/ntumods-scheduler:0.1.0"},
     "scenario": "2048-reach-tile",
     "args": {"target": 256}
   },
   {
-    "env": {"name": "my-org/browser"},
+    "env": {"name": "ntumods-scheduler/ntumods-scheduler:0.1.0"},
     "scenario": "2048-near-win",
     "args": {"target": 2048}
   },
   {
-    "env": {"name": "my-org/browser"},
+    "env": {"name": "ntumods-scheduler/ntumods-scheduler:0.1.0"},
     "scenario": "todo-complete",
     "args": {"expected_count": 3}
   },
   {
-    "env": {"name": "my-org/browser"},
+    "env": {"name": "ntumods-scheduler/ntumods-scheduler:0.1.0"},
     "scenario": "todo-create",
     "args": {"title": "Buy groceries"}
   },
   {
-    "env": {"name": "my-org/browser"},
+    "env": {"name": "ntumods-scheduler/ntumods-scheduler:0.1.0"},
     "scenario": "todo-completion-rate",
     "args": {"target_rate": 0.5}
+  },
+  {
+    "env": {"name": "ntumods-scheduler/ntumods-scheduler:0.1.0"},
+    "scenario": "ntumods-build-schedule",
+    "args": {
+      "program": "CCDS-CSC",
+      "year": 2,
+      "sem": 1,
+      "target_au": 21,
+      "preferences": "no Friday classes"
+    }
   }
 ]

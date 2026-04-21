@@ -34,9 +34,11 @@ env.include_router(apps_router)
 # Register scenarios (scenarios must use @env.scenario, not routers)
 from scenarios.game_2048 import register_scenarios as register_2048_scenarios
 from scenarios.todo import register_scenarios as register_todo_scenarios
+from scenarios.ntumods import register_scenarios as register_ntumods_scenarios
 
 register_2048_scenarios(env)
 register_todo_scenarios(env)
+register_ntumods_scenarios(env)
 
 
 if __name__ == "__main__":
